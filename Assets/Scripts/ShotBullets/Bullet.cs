@@ -4,10 +4,12 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
+    [SerializeField] private Color color;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        this.gameObject.GetComponent<MeshRenderer>().material.color = color;
         Destroy(this.gameObject, lifetime);
     }
 
@@ -26,6 +28,6 @@ public class Bullet : MonoBehaviour
 
     private void BulletHit()
     {
-
+        Debug.Log("Golpe");
     }
 }
